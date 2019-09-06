@@ -29,8 +29,25 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`mcgill getTranscript [FILE]`](#mcgill-gettranscript-file)
 * [`mcgill hello [FILE]`](#mcgill-hello-file)
 * [`mcgill help [COMMAND]`](#mcgill-help-command)
+
+## `mcgill getTranscript [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ mcgill getTranscript [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/getTranscript.ts](https://github.com/ValerianClerc/mcgill-cli/blob/v0.0.0/src/commands/getTranscript.ts)_
 
 ## `mcgill hello [FILE]`
 
