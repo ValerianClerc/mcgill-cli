@@ -2,7 +2,8 @@ import { Command, flags } from "@oclif/command";
 const Minerva = require("mcgill-minerva-api");
 
 export default class GetTranscript extends Command {
-  static description = "describe the command here";
+  static description =
+    "getTranscript retrieves current transcript from Minerva";
 
   static flags = {
     help: flags.help({ char: "h" }),
@@ -10,7 +11,8 @@ export default class GetTranscript extends Command {
       char: "u",
       description: "minerva username (mcgill email)"
     }),
-    password: flags.string({ char: "p", description: "minerva password" })
+    password: flags.string({ char: "p", description: "minerva password" }),
+    current: flags.boolean({ char: "c", description: "current year only" })
   };
 
   // static args = [{ name: "file" }];
@@ -24,10 +26,10 @@ export default class GetTranscript extends Command {
     }
     this.log(`Getting transcript for ${flags.username}`);
 
-    await this.getTranscript(flags.username, flags.password);
+    await this.getTranscript(flags.username, flags.password, flags.current);
   }
 
-  getTranscript(username: string, password: string) {
+  getTranscript(username: string, password: string, current: boolean) {
     this.log(`User : ${username}`);
     this.log(`Pass : ${password}`);
     const that = this;
@@ -36,9 +38,14 @@ export default class GetTranscript extends Command {
 
     minerva
       .getTranscript()
-      .then(function(transcript: object) {
+      .then(function(transcript: Object[]) {
         that.log("TRANSCRIPT:");
-        console.log(transcript);
+        if (current) {
+          transcript = transcript.filter(
+            (course: any) => course.completed == "RW"
+          );
+        }
+        console.info(transcript);
       })
       .catch(function(err: any) {
         that.log(err);

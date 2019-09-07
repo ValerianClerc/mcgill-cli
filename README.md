@@ -1,5 +1,4 @@
-mcgill-cli
-==========
+# mcgill-cli
 
 A CLI to interact with McGill University&#39;s online resources
 
@@ -10,11 +9,15 @@ A CLI to interact with McGill University&#39;s online resources
 [![License](https://img.shields.io/npm/l/mcgill-cli.svg)](https://github.com/ValerianClerc/mcgill-cli/blob/master/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+- [Usage](#usage)
+- [Commands](#commands)
+  <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g mcgill-cli
 $ mcgill COMMAND
@@ -26,25 +29,30 @@ USAGE
   $ mcgill COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`mcgill getTranscript [FILE]`](#mcgill-gettranscript-file)
-* [`mcgill hello [FILE]`](#mcgill-hello-file)
-* [`mcgill help [COMMAND]`](#mcgill-help-command)
+
+- [`mcgill getTranscript [FILE]`](#mcgill-gettranscript-file)
+- [`mcgill hello [FILE]`](#mcgill-hello-file)
+- [`mcgill help [COMMAND]`](#mcgill-help-command)
 
 ## `mcgill getTranscript [FILE]`
 
-describe the command here
+`getTranscript` retrieves current transcript from Minerva
 
 ```
 USAGE
-  $ mcgill getTranscript [FILE]
+  $ mcgill getTranscript
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -c, --current            current year only
+  -h, --help               show CLI help
+  -p, --password=password  minerva password
+  -u, --username=username  minerva username (mcgill email)
 ```
 
 _See code: [src/commands/getTranscript.ts](https://github.com/ValerianClerc/mcgill-cli/blob/v0.0.0/src/commands/getTranscript.ts)_
@@ -85,4 +93,5 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
+
 <!-- commandsstop -->
