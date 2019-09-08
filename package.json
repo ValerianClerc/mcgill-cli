@@ -11,7 +11,7 @@
     "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
-    "mcgill-minerva-api": "^0.1.0",
+    "mcgill-minerva-api": "github:ValerianClerc/mcgill-minerva-api",
     "tslib": "^1.10.0"
   },
   "devDependencies": {

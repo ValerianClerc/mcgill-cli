@@ -9,15 +9,14 @@ A CLI to interact with McGill University&#39;s online resources
 [![License](https://img.shields.io/npm/l/mcgill-cli.svg)](https://github.com/ValerianClerc/mcgill-cli/blob/master/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
-  <!-- tocstop -->
+* [mcgill-cli](#mcgill-cli)
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g mcgill-cli
 $ mcgill COMMAND
@@ -29,20 +28,35 @@ USAGE
   $ mcgill COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
+* [`mcgill getCourse [FILE]`](#mcgill-getcourse-file)
+* [`mcgill getTranscript`](#mcgill-gettranscript)
+* [`mcgill hello [FILE]`](#mcgill-hello-file)
+* [`mcgill help [COMMAND]`](#mcgill-help-command)
 
-- [`mcgill getTranscript [FILE]`](#mcgill-gettranscript-file)
-- [`mcgill hello [FILE]`](#mcgill-hello-file)
-- [`mcgill help [COMMAND]`](#mcgill-help-command)
+## `mcgill getCourse [FILE]`
 
-## `mcgill getTranscript [FILE]`
+describe the command here
 
-`getTranscript` retrieves current transcript from Minerva
+```
+USAGE
+  $ mcgill getCourse [FILE]
+
+OPTIONS
+  -f, --force
+  -h, --help       show CLI help
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/getCourse.ts](https://github.com/ValerianClerc/mcgill-cli/blob/v0.0.0/src/commands/getCourse.ts)_
+
+## `mcgill getTranscript`
+
+getTranscript retrieves current transcript from Minerva
 
 ```
 USAGE
@@ -93,5 +107,4 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
-
 <!-- commandsstop -->
