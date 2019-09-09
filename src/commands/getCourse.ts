@@ -1,5 +1,5 @@
 import { Command, flags } from "@oclif/command";
-const Minerva = require("mcgill-minerva-api");
+import { getCourse } from "../lib/minervaInteractions";
 
 export default class GetCourse extends Command {
   static description =
@@ -47,7 +47,7 @@ export default class GetCourse extends Command {
       return;
     }
 
-    this.getCourse(
+    getCourse(
       flags.username!,
       flags.password!,
       flags.subject!,
@@ -55,38 +55,5 @@ export default class GetCourse extends Command {
       flags.season!,
       flags.year!
     );
-  }
-
-  async getCourse(
-    username: string,
-    password: string,
-    subject: string,
-    classNum: string,
-    season: string,
-    year: string
-  ) {
-    let courseInfo = {
-      dep: subject,
-      number: classNum,
-      season: season,
-      year: year
-    };
-
-    console.debug(`User : ${username}`);
-    console.debug(`Pass : ${password}`);
-
-    console.debug(`Course Info:`);
-    console.debug(courseInfo);
-
-    let minerva = new Minerva(username, password);
-
-    try {
-      let courses = await minerva.getCourses(courseInfo);
-      console.log("Course retrieved");
-      console.log(courses);
-    } catch (e) {
-      console.log("error:");
-      console.log(e);
-    }
   }
 }

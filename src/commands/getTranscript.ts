@@ -1,5 +1,5 @@
 import { Command, flags } from "@oclif/command";
-const Minerva = require("mcgill-minerva-api");
+import { getTranscript } from "../lib/minervaInteractions";
 
 export default class GetTranscript extends Command {
   static description =
@@ -26,29 +26,6 @@ export default class GetTranscript extends Command {
     }
     this.log(`Getting transcript for ${flags.username}`);
 
-    await this.getTranscript(flags.username, flags.password, flags.current);
-  }
-
-  getTranscript(username: string, password: string, current: boolean) {
-    this.log(`User : ${username}`);
-    this.log(`Pass : ${password}`);
-    const that = this;
-
-    let minerva = new Minerva(username, password);
-
-    minerva
-      .getTranscript()
-      .then(function(transcript: Object[]) {
-        that.log("TRANSCRIPT:");
-        if (current) {
-          transcript = transcript.filter(
-            (course: any) => course.completed == "RW"
-          );
-        }
-        console.info(transcript);
-      })
-      .catch(function(err: any) {
-        that.log(err);
-      });
+    await getTranscript(flags.username, flags.password, flags.current);
   }
 }
