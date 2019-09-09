@@ -9,14 +9,16 @@ A CLI to interact with McGill University&#39;s online resources
 [![License](https://img.shields.io/npm/l/mcgill-cli.svg)](https://github.com/ValerianClerc/mcgill-cli/blob/master/package.json)
 
 <!-- toc -->
-* [mcgill-cli](#mcgill-cli)
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+
+- [mcgill-cli](#mcgill-cli)
+- [Usage](#usage)
+- [Commands](#commands)
+  <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g mcgill-cli
 $ mcgill COMMAND
@@ -28,28 +30,53 @@ USAGE
   $ mcgill COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`mcgill getCourse [FILE]`](#mcgill-getcourse-file)
-* [`mcgill getTranscript`](#mcgill-gettranscript)
-* [`mcgill hello [FILE]`](#mcgill-hello-file)
-* [`mcgill help [COMMAND]`](#mcgill-help-command)
 
-## `mcgill getCourse [FILE]`
+- [`mcgill addCourse`](#mcgill-addcourse)
+- [`mcgill getCourse`](#mcgill-getcourse)
+- [`mcgill getTranscript`](#mcgill-gettranscript)
+- [`mcgill help [COMMAND]`](#mcgill-help-command)
 
-describe the command here
+## `mcgill addCourse`
+
+addCourse signs you up for a course (by CRN)
 
 ```
 USAGE
-  $ mcgill getCourse [FILE]
+  $ mcgill addCourse
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -c, --crn=crn            CRN code for desired class
+  -h, --help               show CLI help
+  -p, --password=password  minerva password
+  -s, --season=season      season as 1 letter: 'f' for fall, 'w' for winter, 's' for summer
+  -u, --username=username  minerva username (mcgill email)
+  -y, --year=year          year of class
+```
+
+_See code: [src/commands/addCourse.ts](https://github.com/ValerianClerc/mcgill-cli/blob/v0.0.0/src/commands/addCourse.ts)_
+
+## `mcgill getCourse`
+
+getCourse returns the information for a specific course
+
+```
+USAGE
+  $ mcgill getCourse
+
+OPTIONS
+  -S, --subject=subject    class/department subject (ex: "COMP")
+  -h, --help               show CLI help
+  -n, --classNum=classNum  class number (ex: "303" for COMP 303
+  -p, --password=password  minerva password
+  -s, --season=season      season as 1 letter: 'f' for fall, 'w' for winter, 's' for summer
+  -u, --username=username  minerva username (mcgill email)
+  -y, --year=year          year of class
 ```
 
 _See code: [src/commands/getCourse.ts](https://github.com/ValerianClerc/mcgill-cli/blob/v0.0.0/src/commands/getCourse.ts)_
@@ -71,26 +98,6 @@ OPTIONS
 
 _See code: [src/commands/getTranscript.ts](https://github.com/ValerianClerc/mcgill-cli/blob/v0.0.0/src/commands/getTranscript.ts)_
 
-## `mcgill hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ mcgill hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ mcgill hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/ValerianClerc/mcgill-cli/blob/v0.0.0/src/commands/hello.ts)_
-
 ## `mcgill help [COMMAND]`
 
 display help for mcgill
@@ -107,4 +114,5 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
+
 <!-- commandsstop -->
