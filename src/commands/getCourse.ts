@@ -28,7 +28,7 @@ export default class GetCourse extends Command {
     year: flags.string({ char: "y", description: "year of class" })
   };
 
-  static args = [{ name: "file" }];
+  // static args = [{ name: "file" }];
 
   async run() {
     const { args, flags } = this.parse(GetCourse);

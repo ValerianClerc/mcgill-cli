@@ -41,6 +41,7 @@ USAGE
 - [`mcgill getCourse`](#mcgill-getcourse)
 - [`mcgill getTranscript`](#mcgill-gettranscript)
 - [`mcgill help [COMMAND]`](#mcgill-help-command)
+- [`mcgill watch`](#mcgill-watch)
 
 ## `mcgill addCourse`
 
@@ -114,5 +115,19 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
+
+## `mcgill watch`
+
+describe the command here
+
+```
+USAGE
+  $ mcgill watch
+
+OPTIONS
+  -h, --help       show CLI help
+```
+
+_See code: [src/commands/watch.ts](https://github.com/ValerianClerc/mcgill-cli/blob/v0.0.0/src/commands/watch.ts)_
 
 <!-- commandsstop -->

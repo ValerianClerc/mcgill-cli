@@ -20,7 +20,7 @@ export default class AddCourse extends Command {
     crn: flags.string({ char: "c", description: "CRN code for desired class" })
   };
 
-  static args = [{ name: "file" }];
+  // static args = [{ name: "file" }];
 
   async run() {
     const { args, flags } = this.parse(AddCourse);
