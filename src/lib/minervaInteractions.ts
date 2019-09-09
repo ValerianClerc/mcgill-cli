@@ -25,6 +25,28 @@ export async function addCourse(
   }
 }
 
+export interface ICourse {
+  is_full: Boolean;
+  crn: String;
+  department: String;
+  course_number: String;
+  section: String;
+  type: String;
+  credits: String;
+  title: String;
+  days: String[];
+  time: String[];
+  cap: String;
+  act: String;
+  rem: String;
+  wlcap: String;
+  wlact: String;
+  wlrem: String;
+  instructor: String;
+  location: String;
+  status: String;
+}
+
 export async function getCourse(
   username: string,
   password: string,
@@ -32,7 +54,7 @@ export async function getCourse(
   classNum: string,
   season: string,
   year: string
-) {
+): Promise<ICourse[] | undefined> {
   let courseInfo = {
     dep: subject,
     number: classNum,
@@ -52,9 +74,11 @@ export async function getCourse(
     let courses = await minerva.getCourses(courseInfo);
     console.info("Course retrieved");
     console.info(courses);
+    return courses;
   } catch (e) {
     console.error("error:");
     console.error(e);
+    return undefined;
   }
 }
 
